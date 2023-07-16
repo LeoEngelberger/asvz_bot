@@ -14,6 +14,7 @@
 
 import http.client
 import json
+from datetime import datetime
 
 # env vars #
 sorted_entries = {}
@@ -21,7 +22,14 @@ payload_for_fahrplan = ''
 headers_for_fahrplan = {}
 lessons_with_name = {}
 lessons_of_type = []
+relevant_lessons = []
+relevant_course_ids = []
 
+# config
+relevant_days = ["Monday", "Wednesday"]
+type_matter = True
+type_name = "Akrobatik"
+course_name = "Manege"
 
 # get id from detail view on schalter.asvz.ch exp: https://schalter.asvz.ch/tn/lessons/534848
 course_id = "534848"
@@ -34,7 +42,7 @@ authorization_token = \
 
 def get_all_lessons():
     conn_to_sportfahrplan = http.client.HTTPSConnection("asvz.ch")
-    conn_to_sportfahrplan.request("GET", "/asvz_api/event_search?_format=json&limit=2000", payload_for_fahrplan,
+    conn_to_sportfahrplan.request("GET", "/asvz_api/event_search?_format=json&limit=500", payload_for_fahrplan,
                                   headers_for_fahrplan)
     res_sportfahrplan = conn_to_sportfahrplan.getresponse()
     sportfahrplan_data = res_sportfahrplan.read()
@@ -54,11 +62,11 @@ def get_all_lessons():
             sorted_entries[sport_name] = [entry]
 
 
-def find_all_lessons_with_name(name):
+def find_all_lessons_with_name():
     global lessons_with_name
     all_lessons_with_name = None
     for entry in sorted_entries:
-        if entry == name:
+        if entry == course_name:
             all_lessons_with_name = sorted_entries[entry]
     lessons_with_name = all_lessons_with_name
 
@@ -67,7 +75,7 @@ def find_lessons_of_type():
     global lessons_of_type
     for lesson in lessons_with_name:
         print(lesson['title'])
-        if lesson['title'] == "Akrobatik":
+        if lesson['title'] == type_name:
             lessons_of_type.append(lesson)
 
 
@@ -86,7 +94,32 @@ def enroll_in_lesson():
     print(data.decode("utf-8"))
 
 
+def find_relevant_courses():
+    # Map the integer to the corresponding weekday name
+    weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    for lesson in lessons_of_type:
+        date_str = lesson['from_date']
+        comprehensive_date = datetime.strptime(date_str, '%Y-%m-%dT%H:%M:%SZ')
+        # Get the weekday as an integer (Monday is 0, Sunday is 6)
+        weekday_number = comprehensive_date.weekday()
+        weekday_name = weekdays[weekday_number]
+        if weekday_name in relevant_days:
+            relevant_lessons.append(lesson)
+    return relevant_days
+
+def get_course_ids():
+    global course_id
+    for lesson in relevant_lessons:
+        lesson_url = lesson['url']
+        split_url = lesson_url.split('/')
+        relevant_course_ids.append(split_url[-1])
+    return relevant_course_ids
+
+
 get_all_lessons()
-find_all_lessons_with_name("Manege")
-find_lessons_of_type()
-print(sorted_entries)
+find_all_lessons_with_name()
+if type_matter:
+    find_lessons_of_type()
+find_relevant_courses()
+get_course_ids()
+

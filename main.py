@@ -90,7 +90,7 @@ def get_all_lessons():
     headers_for_fahrplan = {}
     sorted_entries = {}
     conn_to_sportfahrplan = http.client.HTTPSConnection("asvz.ch")
-    conn_to_sportfahrplan.request("GET", "/asvz_api/event_search?_format=json&limit=50", payload_for_fahrplan,
+    conn_to_sportfahrplan.request("GET", "/asvz_api/event_search?_format=json&limit=500", payload_for_fahrplan,
                                   headers_for_fahrplan)
     res_sportfahrplan = conn_to_sportfahrplan.getresponse()
     sportfahrplan_data = res_sportfahrplan.read()

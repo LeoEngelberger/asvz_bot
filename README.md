@@ -1,5 +1,6 @@
 Copyright © 2023 Leo Engelberger
 
+# Description  
 enrols you into all lessons meeting your predefined criteria
 
 run the code every time you want to book lessons

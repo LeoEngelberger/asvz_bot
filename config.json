@@ -1,6 +1,9 @@
 {
   "relevant_days": ["Monday", "Wednesday"],
-  "type_matter": true,
+  "course_name": "Manege",
   "type_name": "Akrobatik",
-  "course_name": "Manege"
+  "type_matter": true,
+  "location_matter": true,
+  "locations": ["CAB Move", "ASVZ Sport Center"],
+  "token": " ------- paste your token here -------- "
 }

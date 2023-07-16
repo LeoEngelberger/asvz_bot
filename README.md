@@ -51,7 +51,7 @@ Unpack the entire zip archive into a folder of your choice
 
 ### 1.2 start the bot
 enter the following command into your terminal: 
-'python asvz_bot.py'
+`python asvz_bot.py`
 
 ## 2 confirm enrolments
 
@@ -62,5 +62,6 @@ The Bot first lists all possible classes and asks you if you want to book all or
 
 ### 2.2 select individual lessons
 The bot will list every lesson with its time, location, and name. if you enter y or yes you are enrolled, if you enter n or no you're not.
-**DISCLAIMER: I do not take any responsibility for classes you missed. Check your enrolments regularly to ensure you do not overbook
+
+**DISCLAIMER: I do not take any responsibility for classes you missed. Check your enrolments regularly to ensure you do not overbook**
 

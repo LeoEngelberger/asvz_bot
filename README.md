@@ -63,3 +63,16 @@ The Bot first lists all possible classes and asks you if you want to book all or
 The bot will list every lesson with its time, location, and name. if you enter y or yes you are enrolled, if you enter n or no you're not.
 **DISCLAIMER: I do not take any responsibility for classes you missed. Check your enrolments regularly to ensure you do not overbook
 
+#  Copyright © 2023 Leo Engelberger
+#  #
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#  #
+#      http://www.apache.org/licenses/LICENSE-2.0
+#  #
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.

@@ -1,9 +1,9 @@
 {
-  "relevant_days": ["Monday", "Wednesday"],
-  "course_name": "Manege",
-  "type_name": "Akrobatik",
+  "relevant_days": ["Monday", "Wednesday", "Friday"],
+  "course_name": "Boxen",
+  "type_name": "Training",
   "type_matter": true,
   "location_matter": true,
-  "locations": ["CAB Move", "ASVZ Sport Center"],
+  "locations": ["Sport Center Hönggerberg"],
   "token": " ------- paste your token here -------- "
 }

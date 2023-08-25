@@ -17,7 +17,7 @@ import json
 from datetime import datetime, timezone, timedelta
 
 # config
-with open('config.json') as config_file:
+with open('config.json', encoding='utf-8') as config_file:
     config_data = json.load(config_file)
 
 relevant_days = config_data["relevant_days"]

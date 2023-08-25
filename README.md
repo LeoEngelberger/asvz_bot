@@ -14,7 +14,7 @@ by default, it will ask for confirmation before booking your lessons
   
 ### 1.1 install Python  
 
-Honestly if you don't know how to figure this one by googling it out this bot is not for you.  
+Honestly if you don't know how to figure out this one by googling it, this bot is not for you.  
 make sure to add your python installation to your PATH variable  
   
 ### 1.2 download this repo  
